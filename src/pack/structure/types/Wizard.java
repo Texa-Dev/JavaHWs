@@ -7,4 +7,13 @@ public final class Wizard extends Mage {
         super(name,80*hpCf, 100*attackCf, 70*manaCf);
     }
 
+    @Override
+    public int attack() {
+        if (getMana()>0&&getProbability().nextInt(0,10)==4){
+            System.out.println("repair hp");
+            setHp(getHp()+20);
+            return super.attack();
+        }
+        return super.attack();
+    }
 }

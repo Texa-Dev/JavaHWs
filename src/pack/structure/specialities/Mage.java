@@ -22,8 +22,9 @@ public abstract class Mage extends Hero {
     public int attack() {
         if (mana > 0) {
             mana -= 10;
-            return (int) (super.attack() * 1.2);
+            return (int) (super.attack() * 1.1);
         }
+        System.out.println("mana is over");
         return 0;
     }
 

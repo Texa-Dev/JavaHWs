@@ -9,6 +9,8 @@ public class Hero {
     private boolean alive;
     private final Random random;
 
+    private Random probability;
+
     {
         random = new Random();
         alive = true;
@@ -54,6 +56,10 @@ public class Hero {
 
     public void setAlive(boolean alive) {
         this.alive = alive;
+    }
+
+    public Random getProbability() {
+        return probability;
     }
 
     @Override

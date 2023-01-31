@@ -29,6 +29,6 @@ public abstract class  Warrior extends Hero {
     @Override
     public void takeDamage(int attack) {
         super.takeDamage(Math.max(attack-armor, 0));
-        armor--;
+       setArmor((int)(getArmor()*0.95));
     }
 }

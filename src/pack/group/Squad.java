@@ -5,6 +5,7 @@ import pack.structure.base.Hero;
 import pack.structure.types.*;
 
 import java.awt.print.Pageable;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Squad {
@@ -23,38 +24,38 @@ public class Squad {
         Hero hero;
         for (int i = 0; i < heroes.length; i++) {
             switch (random.nextInt(Types.MAX)) {
-                case Types.PALADIN -> {
+                case Types.PALADIN: {
                     hero = new Paladin("Pal", 2, 2, 3);
                     break;
                 }
-                case Types.BERSERKER -> {
+                case Types.BERSERKER: {
                     hero = new Berserker("Ber", 1, 3, 2);
                     break;
                 }
-                case Types.ELF -> {
+                case Types.ELF: {
                     hero = new Elf("Elf", 2, 2, 3);
                     break;
                 }
-                case Types.HUNTER -> {
+                case Types.HUNTER: {
                     hero = new Hunter("Hunt", 2, 3, 1);
                     break;
                 }
-                case Types.WARLOCK -> {
+                case Types.WARLOCK: {
                     hero = new Warlock("War", 2, 3, 1);
                     break;
                 }
-                case Types.WIZARD -> {
+                case Types.WIZARD: {
                     hero = new Wizard("Wiz", 2, 1, 3);
                     break;
                 }
-                default -> throw new RuntimeException("Wrong hero type");
+                default: throw new RuntimeException("Wrong hero type");
 
             }
             heroes[i] = hero;
         }
     }
 
-    private boolean anyAlive() {
+    public boolean anyAlive() {
         for (Hero hero : heroes) {
             if (hero.isAlive()) {
                 return true;
@@ -70,7 +71,15 @@ public class Squad {
         Hero hero;
         while (true){
             hero = heroes[random.nextInt(heroes.length)];
-            if (hero.isAlive()) return hero;
+            if (hero.isAlive())
+                return hero;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Squad{" +
+                "heroes=" + Arrays.toString(heroes) +
+                '}';
     }
 }

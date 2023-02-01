@@ -12,6 +12,7 @@ public class Hero {
     private Random probability;
 
     {
+        probability = new Random();
         random = new Random();
         alive = true;
     }

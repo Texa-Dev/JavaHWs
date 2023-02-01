@@ -21,9 +21,10 @@ public abstract class Archer extends Hero {
     @Override
     public int attack() {
         if (ammunition>0) {
-            setAmmunition(ammunition--);
+            setAmmunition(ammunition-1);
             return super.attack();
         }
+        System.out.println("ammunition is over");
         return 0;
     }
 

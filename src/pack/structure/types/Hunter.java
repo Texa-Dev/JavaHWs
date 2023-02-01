@@ -9,9 +9,10 @@ public final class Hunter extends Archer {
 
     @Override
     public int attack() {
-        if (getProbability().nextInt(0, 10) == 8) {
+        if (getAmmunition() > 0 && getHp() > 20 && getProbability().nextInt(10) == 8) {
             setHp(getHp() - 20);
-            return (int) (super.attack() * 1.5);
+            System.out.println("Critical");
+            return (super.attack() + getAttack());
         }
         return super.attack();
     }

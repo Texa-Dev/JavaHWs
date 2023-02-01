@@ -8,8 +8,7 @@ public class Hero {
     private int attack;
     private boolean alive;
     private final Random random;
-
-    private Random probability;
+    private final Random probability; //переменная вероятностей нанесения крита/блока или других фич
 
     {
         probability = new Random();

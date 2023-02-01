@@ -1,9 +1,4 @@
-package pack.structure;
-
-import pack.structure.base.Hero;
-import pack.structure.specialities.Archer;
-import pack.structure.types.Elf;
-import pack.structure.types.Hunter;
+package pack;
 
 public class Main {
     public static void main(String[] args) {

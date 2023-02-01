@@ -7,5 +7,7 @@ public abstract class Types {
     public static final int HUNTER=3;
     public static final int WARLOCK=4;
     public static final int WIZARD=5;
+    public static final int MAX=WIZARD+1;
+
 
 }

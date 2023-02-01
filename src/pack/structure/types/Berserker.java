@@ -12,8 +12,9 @@ public final class Berserker extends Warrior {
 
     @Override
     public int attack() {
-        if (getProbability().nextInt(0,10)==2) {
-            return (int) (super.attack()*1.2);
+        if (getProbability().nextInt(10)==2) {
+            System.out.println("Critical");
+            return (super.attack()+getAttack());
         }
         return super.attack();
     }

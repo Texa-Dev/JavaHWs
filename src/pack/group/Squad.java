@@ -4,18 +4,17 @@ import pack.structure.Types;
 import pack.structure.base.Hero;
 import pack.structure.types.*;
 
-import java.awt.print.Pageable;
 import java.util.Arrays;
 import java.util.Random;
 
 public class Squad {
+    //TODO Баланс героев
     private final Random random;
-    private int size;
+    //private int size; --> конвертирована в локальную переменную
     private final Hero[] heroes;
 
     public Squad(int size) {
         random = new Random();
-        this.size = size;
         this.heroes = new Hero[size];
         fill();
     }
@@ -24,32 +23,13 @@ public class Squad {
         Hero hero;
         for (int i = 0; i < heroes.length; i++) {
             switch (random.nextInt(Types.MAX)) {
-                case Types.PALADIN: {
-                    hero = new Paladin("Pal", 2, 2, 3);
-                    break;
-                }
-                case Types.BERSERKER: {
-                    hero = new Berserker("Ber", 1, 3, 2);
-                    break;
-                }
-                case Types.ELF: {
-                    hero = new Elf("Elf", 2, 2, 3);
-                    break;
-                }
-                case Types.HUNTER: {
-                    hero = new Hunter("Hunt", 2, 3, 1);
-                    break;
-                }
-                case Types.WARLOCK: {
-                    hero = new Warlock("War", 2, 3, 1);
-                    break;
-                }
-                case Types.WIZARD: {
-                    hero = new Wizard("Wiz", 2, 1, 3);
-                    break;
-                }
-                default: throw new RuntimeException("Wrong hero type");
-
+                case Types.PALADIN -> hero = new Paladin("Pal", 2, 2, 3);
+                case Types.BERSERKER -> hero = new Berserker("Ber", 1, 3, 2);
+                case Types.ELF -> hero = new Elf("Elf", 2, 2, 3);
+                case Types.HUNTER -> hero = new Hunter("Hunt", 2, 3, 1);
+                case Types.WARLOCK -> hero = new Warlock("War", 2, 3, 1);
+                case Types.WIZARD -> hero = new Wizard("Wiz", 2, 1, 3);
+                default -> throw new RuntimeException("Wrong hero type");
             }
             heroes[i] = hero;
         }

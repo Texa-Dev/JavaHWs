@@ -11,7 +11,7 @@ public final class Hunter extends Archer {
     public int attack() {
         if (getAmmunition() > 0 && getHp() > 20 && getProbability().nextInt(10) == 8) {
             setHp(getHp() - 20);
-            System.out.println("Critical");
+            System.out.print("Critical ");
             return (super.attack() + getAttack());
         }
         return super.attack();

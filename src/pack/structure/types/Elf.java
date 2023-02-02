@@ -10,7 +10,7 @@ public final class Elf extends Archer {
     public int attack() {
         if (getAmmunition()>0&&getProbability().nextInt(10)==7){
             setAmmunition(getAmmunition()+1);
-            System.out.println("Damage without ammunition");
+            System.out.print("Damage without ammunition ");
             return (int) (super.attack()*0.8);
         }
         return super.attack();

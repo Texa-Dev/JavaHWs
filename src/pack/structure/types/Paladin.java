@@ -10,7 +10,7 @@ public final class Paladin extends Warrior {
     @Override
     public void takeDamage(int attack) {
         if (getProbability().nextInt(10)==3) {
-            System.out.println("Block");
+            System.out.print("Block ");
             super.takeDamage(0);
         }
         super.takeDamage(attack);

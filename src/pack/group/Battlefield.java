@@ -33,17 +33,24 @@ public class Battlefield {
             if (!s2.anyAlive()) break;  //Цикл прерываеться если во втором отряде после хода не осталось живых героев
             if(!h2.isAlive()) h2=s2.hero(); // Проверка живой ли герой после хода, иначе походит атака от героя с 0hp
 
-            System.out.print("Hero "+h1.getName()+" deals damage "+h2.getName()+" ");
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            System.out.print("Hero "+h2.getName()+" deals damage "+h1.getName()+" ");
             h1.takeDamage(h2.attack());
             System.out.println();
             System.out.printf("%s\t-->\t%s\n", h2,h1);
 
             try {
-                Thread.sleep(5000);
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+        System.out.println();
         System.out.println(s1.anyAlive()?"Squad 1 WIN":"Squad 2 WIN");
         System.out.println("Squad 1: "+s1);
         System.out.println("Squad 2: "+s2);

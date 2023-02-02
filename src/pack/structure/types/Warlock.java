@@ -10,7 +10,7 @@ public final class Warlock extends Mage {
     @Override
     public int attack() {
         if (getMana()>0&&getProbability().nextInt(10)==5){
-            System.out.println("repair mana");
+            System.out.print("Repair mana ");
             setMana(getMana()+20);
             return super.attack();
         }

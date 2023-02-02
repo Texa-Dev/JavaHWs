@@ -75,6 +75,7 @@ public class Hero {
     }
 
     public void takeDamage(int attack){
+        System.out.println(attack);
         setHp(Math.max(hp - attack, 0));
     }
 }

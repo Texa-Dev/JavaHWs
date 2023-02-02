@@ -18,35 +18,30 @@ public class Battlefield {
     public void fight(){
         Hero h1,h2;
         System.out.println("start");
-        System.out.println(s1);
-        System.out.println(s2);
-
+        /*System.out.println(s1);
+        System.out.println(s2);*/
 
         while (s1.anyAlive()&&s2.anyAlive()){
             System.out.println("Step: " +step++);
             h1=s1.hero();
             h2=s2.hero();
             h2.takeDamage(h1.attack());
-            System.out.printf("%s\t<--\t%s\n\n\n", h2,h1);
-            System.out.println(h1.attack());
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            System.out.printf("%s\t<--\t%s\n", h2,h1);
+
+            if (!s2.anyAlive()) break;  //Цикл прерываеться если во втором отряде после хода не осталось живых героев
+            if(!h2.isAlive()) h2=s2.hero(); // Проверка живой ли герой после хода, иначе походит атака от героя с 0hp
             h1.takeDamage(h2.attack());
-            System.out.printf("%s\t-->\t%s\n\n\n", h2,h1);
-            System.out.println(h2.attack());
+            System.out.printf("%s\t-->\t%s\n", h2,h1);
 
             try {
-                Thread.sleep(3000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         System.out.println(s1.anyAlive()?"Squad 1 WIN":"Squad 2 WIN");
-        System.out.println(s1);
-        System.out.println(s2);
-        System.out.println("end");
+        System.out.println("Squad 1: "+s1);
+        System.out.println("Squad 2: "+s2);
+        System.out.println("Game Over");
     }
 }
